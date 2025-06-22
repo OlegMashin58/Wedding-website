@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.css";
 
-const BurgerMenu = () => {
+export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -16,5 +16,3 @@ const BurgerMenu = () => {
     </button>
   );
 };
-
-export default BurgerMenu;

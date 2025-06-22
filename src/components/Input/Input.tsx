@@ -2,15 +2,14 @@ import styles from "./index.module.css";
 
 type TInputProps = {
   title: string;
+  placeholder?: string;
 };
 
-const Input = ({ title }: TInputProps) => {
+export const Input = ({ title, placeholder }: TInputProps) => {
   return (
     <div className={styles.input__container}>
       <span className={styles.input__title}>{title}</span>
-      <input className={styles.main__input} />
+      <input className={styles.main__input} placeholder={placeholder} />
     </div>
   );
 };
-
-export default Input;

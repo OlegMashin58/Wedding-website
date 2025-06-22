@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 
-const DetailsSection = () => {
+export const DetailsSection = () => {
   const renderColorCard = () => {
     const colors = [
       { name: "Бежевый", hex: "#F5F5DC" },
@@ -35,5 +35,3 @@ const DetailsSection = () => {
     </div>
   );
 };
-
-export default DetailsSection;

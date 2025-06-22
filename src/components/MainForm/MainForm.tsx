@@ -1,14 +1,20 @@
 import styles from "./index.module.css";
-import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input";
+import { Button } from "../../components/Button/Button";
+import { Input } from "../../components/Input/Input";
 import { SyntheticEvent } from "react";
 
-const WORDS = {
-  INPUT_TITLE: "Ваше Имя и Фамилия",
-  BUTTON_TITLE: "Отправить",
+const TITLE = {
+  NAME_AND_SURNAME: "Ваше Имя и Фамилия",
+  WILL_YOU_BE_WITH: "Если вы будете не одни, пожалуйста, заполните поле ниже",
+  SUBMIT: "Отправить",
 };
 
-const MainForm = () => {
+const PLACEHOLDER = {
+  NAME_AND_SURNAME: "Имя и Фамилия",
+  WILL_YOU_BE_WITH: "Имя и Фамилия вашего спутника/спутницы",
+};
+
+export const MainForm = () => {
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
   };
@@ -16,11 +22,16 @@ const MainForm = () => {
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <Input title={WORDS.INPUT_TITLE} />
-        <Button title={WORDS.BUTTON_TITLE} onClick={() => {}} />
+        <Input
+          title={TITLE.NAME_AND_SURNAME}
+          placeholder={PLACEHOLDER.NAME_AND_SURNAME}
+        />
+        <Input
+          title={TITLE.WILL_YOU_BE_WITH}
+          placeholder={PLACEHOLDER.WILL_YOU_BE_WITH}
+        />
+        <Button title={TITLE.SUBMIT} onClick={() => {}} />
       </form>
     </div>
   );
 };
-
-export default MainForm;

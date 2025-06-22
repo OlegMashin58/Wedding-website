@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import Photo from "./../../assets/images/WelcomeImage.jpg";
 
-const WelcomeSection = () => {
+export const WelcomeSection = () => {
   return (
     <>
       <div className={styles.welcome__container}>
@@ -11,5 +11,3 @@ const WelcomeSection = () => {
     </>
   );
 };
-
-export default WelcomeSection;

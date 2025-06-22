@@ -1,9 +1,9 @@
-import MainForm from "../MainForm/MainForm";
+import { MainForm } from "../MainForm/MainForm";
 import styles from "./index.module.css";
 
 import { ReactComponent as Heart } from "../../assets/icons/hearts-valentines-day-svgrepo-com.svg";
 
-const FormSection = () => {
+export const FormSection = () => {
   return (
     <>
       <div className={styles.form_wrapper}>
@@ -25,5 +25,3 @@ const FormSection = () => {
     </>
   );
 };
-
-export default FormSection;

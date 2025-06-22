@@ -5,12 +5,10 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-const Button = ({ title, onClick }: ButtonProps) => {
+export const Button = ({ title, onClick }: ButtonProps) => {
   return (
     <button className={styles.main__button} onClick={onClick}>
       {title}
     </button>
   );
 };
-
-export default Button;

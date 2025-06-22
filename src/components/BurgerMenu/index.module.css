@@ -1,0 +1,27 @@
+.burgerMenu {
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burgerMenu span {
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  background-color: #000000;
+  border-radius: 15px;
+}
+
+.burgerMenu span:nth-child(2) {
+  transform: translateY(-6px);
+}
+
+.burgerMenu span:nth-child(3) {
+  transform: translateY(6px);
+}
+

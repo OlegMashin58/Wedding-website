@@ -1,0 +1,12 @@
+.welcome__container {
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.welcome__title {
+  font-size: 70px ;
+}
+
+.welcome__photo {
+  width: 100%;
+}

@@ -5,9 +5,9 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-export const Button = ({ title, onClick }: ButtonProps) => {
+export const MainButton = ({ title, onClick }: ButtonProps) => {
   return (
-    <button className={styles.main__button} onClick={onClick}>
+    <button className={styles.mainButton} onClick={onClick}>
       {title}
     </button>
   );

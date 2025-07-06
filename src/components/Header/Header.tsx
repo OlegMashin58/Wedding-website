@@ -1,4 +1,4 @@
-import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
+import { BurgerMenu } from "../BurgerMenu";
 import styles from "./index.module.css";
 
 export const Header = () => {

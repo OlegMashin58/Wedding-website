@@ -1,0 +1,52 @@
+.registrationWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/icons/backgroudLogo.jpg");
+  background-size: cover;
+}
+
+.formTitleWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+
+  .formTitle {
+    font-size: 20px;
+  }
+}
+
+.toggleSwitchForm {
+  color: #E6E6E6;
+  cursor: pointer;
+}
+
+.form {
+  border: 1px solid #000000;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formRegistration {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .registrationWrapper {
+    color: red;
+    background-image: url("../../assets/icons/backgroudLogo.jpg");
+    background-size: cover;
+  }
+}

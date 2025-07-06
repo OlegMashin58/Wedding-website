@@ -1,0 +1,9 @@
+.mainButton {
+  width: auto;
+  height: 40px;
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 20px;
+  border: 1px solid #000000;
+  cursor: pointer;
+}

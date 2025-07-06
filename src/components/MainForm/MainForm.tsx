@@ -1,6 +1,7 @@
+import { CustomInput, MainButton } from "../../components";
+// import { MainButton } from "../MainButton";
 import styles from "./index.module.css";
-import { Button } from "../../components/Button/Button";
-import { Input } from "../../components/Input/Input";
+
 import { SyntheticEvent } from "react";
 
 const TITLE = {
@@ -22,15 +23,15 @@ export const MainForm = () => {
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <Input
+        <CustomInput
           title={TITLE.NAME_AND_SURNAME}
           placeholder={PLACEHOLDER.NAME_AND_SURNAME}
         />
-        <Input
+        <CustomInput
           title={TITLE.WILL_YOU_BE_WITH}
           placeholder={PLACEHOLDER.WILL_YOU_BE_WITH}
         />
-        <Button title={TITLE.SUBMIT} onClick={() => {}} />
+        <MainButton title={TITLE.SUBMIT} onClick={() => {}} />
       </form>
     </div>
   );

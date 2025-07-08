@@ -7,7 +7,10 @@ export const FormSection = () => {
   return (
     <>
       <div className={styles.form_wrapper}>
-        <p className={styles.form__title}>Анкета гостя</p>
+        <span className={styles.form__title}>Анкета гостя</span>
+        <span>
+          Заполните, пожалуйста, форму, чтобы подтвердить своё присутствие
+        </span>
         <div className={styles.grid_divider}>
           <span
             style={{

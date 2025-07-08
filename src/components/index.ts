@@ -20,3 +20,5 @@ export { MainButton } from "./MainButton";
 export { CustomInput } from "./CustomInput";
 
 export { EyeIcon, EyeHideIcon } from "./SVGComponents";
+
+export { CustomCheckbox } from "./CustomCheckbox";

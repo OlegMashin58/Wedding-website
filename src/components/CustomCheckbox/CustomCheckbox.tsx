@@ -3,23 +3,22 @@ import { ChangeEvent } from "react";
 
 interface ICustomCheckboxProps {
   label: string;
-  checked?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
 export const CustomCheckbox = ({
   label,
-  checked,
-  onChange,
+  value,
+  ...props
 }: ICustomCheckboxProps) => {
   return (
     <div className={styles.checkboxWrapper}>
       <input
         className={styles.checkbox}
         type="checkbox"
-        checked={checked}
-        onChange={onChange}
-      ></input>
+        value={value}
+        {...props}
+      />
       <label className={styles.checkboxLabel}>{label}</label>
     </div>
   );

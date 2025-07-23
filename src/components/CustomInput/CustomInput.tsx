@@ -1,42 +1,17 @@
-import { useState } from "react";
-import { EyeIcon, EyeHideIcon } from "../../components";
+import { InputHTMLAttributes, forwardRef } from "react";
 import styles from "./index.module.css";
 
-type TInputProps = {
-  title?: string;
-  placeholder?: string;
-  type?: string;
-  label?: string;
-};
+interface ICustomInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
 
-export const CustomInput = ({
-  title,
-  placeholder,
-  type,
-  label,
-}: TInputProps) => {
-  const [show, setShow] = useState<boolean>(false);
-
-  const toggleShowPassword = () => {
-    setShow(!show);
-  };
-
-  return (
-    <div className={styles.inputContainer}>
+export const CustomInput = forwardRef<HTMLInputElement, ICustomInputProps>(
+  ({ label, ...rest }, ref) => (
+    <div className={styles.inputWrapper}>
       <label className={styles.inputLabel}>{label}</label>
-      <span className={styles.inputTitle}>{title}</span>
-      <div className={styles.passwordWrapper}>
-        <input
-          className={styles.mainInput}
-          placeholder={placeholder}
-          type={type === "password" ? (show ? "text" : "password") : type}
-        />
-        {type === "password" ? (
-          <span className={styles.eyeIcon} onClick={toggleShowPassword}>
-            {show ? <EyeIcon /> : <EyeHideIcon />}
-          </span>
-        ) : null}
-      </div>
+      <input className={styles.mainInput} ref={ref} {...rest} />
     </div>
-  );
-};
+  )
+);
+
+CustomInput.displayName = "CustomInput";

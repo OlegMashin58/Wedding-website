@@ -1,63 +1,68 @@
 import { CustomInput, MainButton, CustomCheckbox } from "../../components";
 import styles from "./index.module.css";
-import { useState, SyntheticEvent } from "react";
+import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
+import { DRINKS, TITLE, PLACEHOLDER } from "./consts";
 
-const TITLE = {
-  NAME_AND_SURNAME: "Ваше Имя и Фамилия",
-  WILL_YOU_BE_WITH: "Если вы будете не одни, пожалуйста, заполните поле ниже",
-  SUBMIT: "Отправить",
-};
+interface Companion {
+  name: string;
+}
 
-const PLACEHOLDER = {
-  NAME_AND_SURNAME: "Имя и Фамилия",
-  WILL_YOU_BE_WITH: "Имя и Фамилия вашего спутника/спутницы",
-};
-
-const DRINKS = [
-  { name: "Вино" },
-  { name: "Коньяк" },
-  { name: "Водка" },
-  { name: "Шампанское" },
-  { name: "Виски" },
-  { name: "Безалкогольные напики" },
-];
+interface MainFormValues {
+  name: string;
+  companions: Companion[];
+  drinks: string[];
+}
 
 export const MainForm = () => {
-  const [extraInputs, setExtraInputs] = useState<string[]>([]);
+  const { control, register, handleSubmit, watch } = useForm<MainFormValues>({
+    defaultValues: {
+      name: "",
+      companions: [],
+      drinks: [],
+    },
+  });
 
-  const handleAddInput = () => {
-    setExtraInputs((prev) => [...prev, ""]);
-  };
+  const { fields, append } = useFieldArray({
+    control,
+    name: "companions",
+  });
 
-  const handleSubmit = (event: SyntheticEvent) => {
-    event.preventDefault();
+  const onSubmit: SubmitHandler<MainFormValues> = (data) => {
+    console.log("Form data:", data);
   };
 
   return (
     <div className={styles.formContainer}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <CustomInput
           label={TITLE.NAME_AND_SURNAME}
           placeholder={PLACEHOLDER.NAME_AND_SURNAME}
+          {...register("name")}
         />
-        {extraInputs.map((_, idx) => (
+        {fields.map((field, idx) => (
           <CustomInput
-            key={idx}
+            key={field.id}
             label={TITLE.WILL_YOU_BE_WITH + ` #${idx + 2}`}
             placeholder={PLACEHOLDER.WILL_YOU_BE_WITH}
+            {...register(`companions.${idx}.name` as const)}
           />
         ))}
-        <MainButton title={"+"} onClick={handleAddInput} />
+        <MainButton title={"+"} onClick={() => append({ name: "" })} />
         <span>
           Уточните Ваши предпочтения в алкоголе, выбрав один или несколько
           вариантов:
         </span>
         <div className={styles.checkboxGroup}>
           {DRINKS.map((drink) => (
-            <CustomCheckbox key={drink.name} label={drink.name} />
+            <CustomCheckbox
+              key={drink.name}
+              value={drink.name}
+              label={drink.name}
+              {...register("drinks")}
+            />
           ))}
         </div>
-        <MainButton title={TITLE.SUBMIT} onClick={() => {}} />
+        <MainButton title={TITLE.SUBMIT} type="submit" />
       </form>
     </div>
   );
